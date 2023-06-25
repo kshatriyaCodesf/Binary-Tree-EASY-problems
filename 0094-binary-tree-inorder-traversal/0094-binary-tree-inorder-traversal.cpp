@@ -40,18 +40,36 @@ public:
     
     // METHOD 2:(not best solution)
     
+    // vector<int>result ;
+    // vector<int> inorderTraversal(TreeNode* root) 
+    // {
+    //     if(root==NULL)
+    //     {
+    //         return result ;
+    //     }
+    //     vector<int>left = inorderTraversal(root->left);
+    //     result.push_back(root->val);
+    //     vector<int>right = inorderTraversal(root->right);
+    //     return result ;
+    // }
+    
+    
+    //METHOD 3:
     vector<int>result ;
-    vector<int> inorderTraversal(TreeNode* root) 
+    void helperIN(TreeNode*root)
     {
         if(root==NULL)
-        {
-            return result ;
+        {   
+            return ; 
         }
-        vector<int>left = inorderTraversal(root->left);
+        helperIN(root->left);
         result.push_back(root->val);
-        vector<int>right = inorderTraversal(root->right);
-        return result ;
+        helperIN(root->right);
     }
- };
+    vector<int> inorderTraversal(TreeNode* root) {
+        helperIN(root);return result ;
+    }
+};
+
     
  

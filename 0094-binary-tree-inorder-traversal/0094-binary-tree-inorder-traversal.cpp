@@ -12,6 +12,9 @@
 class Solution {
 public:
     // METHOD 1:(best solution)
+    
+    /*here instead of the queue we can easily use the stack here in that case value wil be same and the     best*/
+    
 //     queue<int>qt;
 //     void helperQueue(TreeNode*root)
 //     {

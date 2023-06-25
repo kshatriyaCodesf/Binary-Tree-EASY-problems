@@ -55,19 +55,21 @@ public:
     
     
     //METHOD 3:
-    vector<int>result ;
-    void helperIN(TreeNode*root)
+    
+    void helperIN(TreeNode*root,vector<int>&result)
     {
         if(root==NULL)
         {   
             return ; 
         }
-        helperIN(root->left);
+        helperIN(root->left,result);
         result.push_back(root->val);
-        helperIN(root->right);
+        helperIN(root->right,result);
     }
     vector<int> inorderTraversal(TreeNode* root) {
-        helperIN(root);return result ;
+        vector<int>result ;
+        helperIN(root,result);
+        return result ;
     }
 };
 

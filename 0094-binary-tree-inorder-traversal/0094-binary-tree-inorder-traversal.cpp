@@ -11,28 +11,47 @@
  */
 class Solution {
 public:
-    queue<int>qt;
-    void helperQueue(TreeNode*root)
-    {
-    		if(root == NULL)
-    		{
-    			return ;
-    		}
-    		helperQueue(root->left);
-    		qt.push(root->val);
-    		helperQueue(root->right);
-    }
+    // METHOD 1:(best solution)
+//     queue<int>qt;
+//     void helperQueue(TreeNode*root)
+//     {
+//     		if(root == NULL)
+//     		{
+//     			return ;
+//     		}
+//     		helperQueue(root->left);
+//     		qt.push(root->val);
+//     		helperQueue(root->right);
+//     }
     
+//     vector<int> inorderTraversal(TreeNode* root) 
+//     {
+//         vector<int>result ;
+//         helperQueue(root);
+//        while(qt.size()!=0)
+//        {
+//        	result.push_back(qt.front());
+//        	qt.pop();
+//        }
+       
+//        return result ;
+//     }
+    
+    
+    // METHOD 2:(not best solution)
+    
+    vector<int>result ;
     vector<int> inorderTraversal(TreeNode* root) 
     {
-        vector<int>result ;
-        helperQueue(root);
-       while(qt.size()!=0)
-       {
-       	result.push_back(qt.front());
-       	qt.pop();
-       }
-       
-       return result ;
+        if(root==NULL)
+        {
+            return result ;
+        }
+        vector<int>left = inorderTraversal(root->left);
+        result.push_back(root->val);
+        vector<int>right = inorderTraversal(root->right);
+        return result ;
     }
  };
+    
+ 

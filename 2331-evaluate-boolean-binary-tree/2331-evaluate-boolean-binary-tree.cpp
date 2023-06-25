@@ -18,16 +18,13 @@ public:
         {
         	return root->val; 
         }
-        bool evalLEFT = evaluateTree(root->left);
-        bool evalRIGHT= evaluateTree(root->right);
-        
         if(root->val==2)
         {
-        	value =  evalRIGHT||evalLEFT;
+        	value =  evaluateTree(root->right)||evaluateTree(root->left);
         }
         else if(root->val==3)
         {
-        	value = evalRIGHT && evalLEFT;
+        	value = evaluateTree(root->right) && evaluateTree(root->left);
         }
         return value ;
     }

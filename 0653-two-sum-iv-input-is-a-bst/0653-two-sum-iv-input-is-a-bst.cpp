@@ -13,7 +13,7 @@ class Solution {
 public:
   
     unordered_set<int>s;
-    // unordered_set and the vector acts like stack whatever the element get inserted inside the unordered set will  abide the     LIFO rule
+    
    
     void arrange(TreeNode*root)
     {

@@ -13,15 +13,18 @@ class Solution {
 public:
   
     unordered_set<int>s;
-    // unordered_set and the vector acts like stack whatever the element get inserted inside the set will  abide the LIFO rule
+    // unordered_set and the vector acts like stack whatever the element get inserted inside the unordered set will  abide the     LIFO rule
    
     void arrange(TreeNode*root)
     {
         if(root==NULL){return ;}
        
-         arrange(root->right);
-         s.insert(root->val);
          arrange(root->left);
+        
+         s.insert(root->val);
+        
+         arrange(root->right);
+         
        
     }
     bool  findTWOsum(unordered_set<int>s , int k)

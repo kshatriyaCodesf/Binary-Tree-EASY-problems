@@ -62,8 +62,10 @@ Therefore, the overall space complexity of the given code is O(n), where n is th
         else{
             
             inorder(root->left);
-            Inorder.push_back(root->val);
-            inorder(root->right);
+             Inorder.push_back(root->val);
+             inorder(root->right);
+           
+           
             
             
         }

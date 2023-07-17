@@ -44,13 +44,42 @@ Therefore, the overall space complexity of the given code is O(n), where n is th
     // }
     
     
-    int res = INT_MAX, pre = -1;
-    int minDiffInBST(TreeNode* root) {
-        if (root->left != NULL) minDiffInBST(root->left);
-        if (pre >= 0) res = min(res, root->val - pre);
-        pre = root->val;
-        if (root->right != NULL) minDiffInBST(root->right);
-        return res;
+    // int res = INT_MAX, pre = -1;
+    // int minDiffInBST(TreeNode* root) 
+    // {
+    //     if (root->left != NULL) minDiffInBST(root->left);
+    //     if (pre >= 0) res = min(res, root->val - pre);
+    //     pre = root->val;
+    //     if (root->right != NULL) minDiffInBST(root->right);
+    //     return res;
+    // }
+    
+    vector<int>Inorder;
+    
+    void inorder(TreeNode* root){
+        if(!root)
+            return;
+        else{
+            
+            inorder(root->left);
+            Inorder.push_back(root->val);
+            inorder(root->right);
+            
+            
+        }
     }
+    
+    int minDiffInBST(TreeNode* root) {
+        if(!root)
+            return 0;
+        inorder(root);
+        int res = INT_MAX;
+        for(auto i=1;i<Inorder.size();i++){
+            res = min(res, Inorder[i]-Inorder[i-1]); }
+        return res;
+        
+    }
+    
+    
    
 };

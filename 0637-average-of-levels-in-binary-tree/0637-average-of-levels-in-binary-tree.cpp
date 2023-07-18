@@ -34,7 +34,11 @@ public:
             }
             
             if (!q.empty()) {
-                q.push(nullptr); // Add the level separator for the next level
+                q.push(nullptr); // Add the level separator for the next 
+                
+                /*nullptr also has some sizes to avoid this we should check for the 
+                the empty array case also otherwise the while loop will never get terminated
+                and this led the TLE ERROR*/
             }
         }
         

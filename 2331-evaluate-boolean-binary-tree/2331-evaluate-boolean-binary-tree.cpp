@@ -2,7 +2,9 @@
 class Solution {
 public:
     bool evaluateTree(TreeNode* root) 
-    {
+{
+        
+/*method 1:*/
 //         if(root==NULL)
 //         {
 //             return false;
@@ -17,7 +19,7 @@ public:
 //         return false ; // this is for the those cases in which root->val is neither 2 or nor 3
            
         
-         
+    // method 2:     
         if (root->val < 2) return root->val;
         
         else if (root->val == 2) return evaluateTree(root->left) || evaluateTree(root->right);
